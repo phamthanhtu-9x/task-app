@@ -45,6 +45,7 @@ const actions = {
   initAuth({ commit, dispatch }, req) {
     let token, tokenExpiration, user;
     if(req) {
+      console.log(req.headers.cookie);
       if(!req.headers.cookie) {
         dispatch('logout');
         return false;
@@ -62,16 +63,6 @@ const actions = {
       tokenExpiration = tokenExpirationKey.split('=')[1]
       user = JSON.parse(decodeURIComponent(userKey.split('=')[1]));
       commit('SET_USER', user);
-    } else {
-      if (typeof window !== 'undefined') {
-        token = localStorage.getItem('token');
-        tokenExpiration = localStorage.getItem('tokenExpiration')
-
-        if(new Date().getTime() > tokenExpiration || !token) {
-          dispatch('logout');
-          return false;
-        }
-      }
     }
     dispatch('setLogoutTimer', tokenExpiration - new Date().getTime());
     commit('SET_TOKEN', token);
