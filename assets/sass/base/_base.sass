@@ -1,0 +1,242 @@
+@charset "utf-8"
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video
+  margin: 0
+  padding: 0
+  border: 0
+  font: inherit
+  font-size: 100%
+  vertical-align: baseline
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+  margin-bottom: 1.5em
+  font-weight: bold
+h1
+  font-size: 2em
+h2
+  font-size: 1.8em
+h3
+  font-size: 1.6em
+h4
+  font-size: 1.4em
+h5
+  font-size: 1.2em
+h6
+  font-size: 1em
+
+ol, ul
+  margin-bottom: 1.5em
+  padding-left: 1.5em
+
+table
+  width: 100%
+  margin-bottom: 1.5em
+  border-collapse: collapse
+  border-spacing: 0
+
+table th,
+table td
+  padding: .5em
+  border: 1px solid #000
+
+table th
+  font-weight: bold
+
+caption, th, td
+  text-align: left
+  font-weight: normal
+  vertical-align: middle
+
+q, blockquote
+  quotes: none
+
+q:before, q:after, blockquote:before, blockquote:after
+  content: ""
+  content: none
+
+a img
+  border: none
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary
+  display: block
+
+*,
+*:before,
+*:after
+  box-sizing: border-box
+
+body *
+  max-height: 99999em
+  word-break: break-word
+
+p
+  margin-bottom: 1.5em
+
+a:hover
+  text-decoration: none
+
+img
+  display: inline-block
+  vertical-align: middle
+  max-width: 100%
+  height: auto
+
+input,
+label,
+select,
+button
+  line-height: inherit
+
+input,
+label,
+select,
+button,
+textarea
+  margin: 0
+  border: 0
+  padding: 0
+  word-break: normal
+  display: inline-block
+  vertical-align: middle
+  white-space: normal
+  background: none
+  -webkit-appearance: none
+  font: inherit
+
+button:focus
+  outline: 0
+input:focus,
+textarea:focus,
+select:focus
+  outline: auto
+
+input[type=search]
+  -webkit-appearance: textfield
+
+::-webkit-search-decoration
+  display: none
+
+textarea
+  overflow: auto
+  white-space: pre-line
+  resize: none
+
+@media print
+  body
+    -webkit-print-color-adjust: exact
+  html,
+  body
+    margin: 0
+  @page
+    margin: 0
+  @page :left
+    margin: 0
+  @page :right
+    margin: 0
+  @page :first
+    margin-top: 0
+
+html
+  line-height: 1
+  opacity: 1
+  &.is-loading
+    transition: opacity .25s ease
+    opacity: 0
+
+body
+  color: $base-font-color
+  font-family: $base-font-sans
+  font-weight: $base-font-weight
+  line-height: $base-line-height
+  background: #fafafa
+  -webkit-text-size-adjust: none
+  -moz-text-size-adjust: none
+  -ms-text-size-adjust: none
+  transition: opacity .3s ease
+  -webkit-tap-highlight-color:  rgba(255,255,255,0)
+
+.hidden
+  display: none
+
+.trans
+  opacity: 1
+  transition: opacity .26s ease
+  text-decoration: none
+  &:hover
+    opacity: .8
+
++desktop
+  html
+    font-size: 625%
+
+  body
+    font-size: $base-font-size
+
+  .container
+    min-width: $base-width
+
+  .wrapper
+    width: 100%
+    margin-left: auto
+    margin-right: auto
+    padding: 40px
+
+  .sm
+    display: none !important
+
+
++mobile
+
+  html
+    font-size: calc(100vw / 7.5)
+    min-height: 100vh
+
+  body
+    font-size: $base-font-size-sp
+
+  .container
+    min-width: 320px
+
+  .wrapper
+    padding-left: .4rem
+    padding-right: .4rem
+
+  .md
+    display: none !important
+
+input:-webkit-autofill, .form-item .form-input input:-webkit-autofill:hover, .form-item .form-input input:-webkit-autofill:focus, .form-item .form-input input:-webkit-autofill:active, .form-item .form-input textarea:-webkit-autofill, .form-item .form-input textarea:-webkit-autofill:hover, .form-item .form-input textarea:-webkit-autofill:focus, .form-item .form-input textarea:-webkit-autofill:active, .form-item .form-input select:-webkit-autofill, .form-item .form-input select:-webkit-autofill:hover, .form-item .form-input select:-webkit-autofill:focus, .form-item .form-input select:-webkit-autofill:active
+  transition-delay: 9999s!important
+  transition-property: background-color, color!important
+
+@keyframes pulse
+  0%
+    transform: scale(.8)
+    background: rgba(51,102,255,.2)
+  50%
+    opacity: 0.3
+    background: rgba(51,102,255, 1)
+  100%
+    transform: scale(1.8)
+    opacity: 0
+    background: rgba(51,102,255,.2)
+
++desktop
+  .main
+    min-height: calc( 100vh - 60px )

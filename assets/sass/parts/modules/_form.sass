@@ -1,0 +1,78 @@
+.form-input
+  .text-error
+    display: none
+    text-align: left
+    color: red
+  &.hasError
+    .text-error
+      display: inline-block
+  label
+    font-weight: 500
+    display: block
+    text-align: left
+  input, textarea
+    font-family: inherit
+    appearance: none
+    border: unset
+    max-width: 100%
+    background: #fff
+    display: block
+    transition: all .26s ease-in-out
+    border: 1px solid #eee
+    outline: unset
+    &:focus
+      border: 1px solid #1f6feb
+.form-submit
+  button
+    width: 100%
+    margin: 0 auto
+    background: $base-color
+    border: unset
+    color: #fff
+    font-weight: 500
+    cursor: pointer
+    text-align: center
+    transition: all .26s ease-in-out
+    &.is-block
+      pointer-events: none
+      opacity: .5
+    &:hover
+      opacity: .8
++desktop
+  .form-input
+    margin-bottom: 20px
+    label
+      margin-bottom: 10px
+    input, textarea, select
+      border-radius: 5px
+      width: 350px
+      padding: 5px 15px
+      outline-offset: 2px
+      &:focus
+        box-shadow: 0 0 0 2px #739dec
+    input, select
+      height: 40px
+  .form-submit
+    button
+      height: 40px
+      border-radius: 8px
++mobile
+  .form-input
+    margin-bottom: .2rem
+    label
+      margin-bottom: .1rem
+    input, textarea, select
+      border-radius: .1rem
+      width: 100%
+      padding: .1rem .3rem
+      outline-offset: .04rem
+      &:focus
+        box-shadow: 0 0 0 .04rem #739dec
+    input, select
+      height: .6rem
+    textarea
+      min-height: 1.5rem
+  .form-submit
+    button
+      height: .8rem
+      border-radius: .1rem

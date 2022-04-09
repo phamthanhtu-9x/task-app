@@ -1,0 +1,267 @@
+.list-task
+  margin: 0
+  padding: 0
+  list-style: none
+  display: flex
+  align-items: flex-start
+  justify-content: flex-start
+  flex-wrap: wrap
+.add-task
+  text-align: center
+  cursor: pointer
+  position: fixed
+  a
+    display: block
+    &::after
+      content: ""
+      position: absolute
+      width: 100%
+      height: 100%
+      top: 0
+      left: 0
+      -webkit-animation: pulse 1.2s ease infinite
+      animation: pulse 1.2s ease infinite
+      border-radius: 100%
+      pointer-events: none
+    &:hover
+      &::after
+        animation: unset
+  img
+    border-radius: 50%
+    position: relative
+    z-index: 1
++desktop
+  .list-task
+    margin: -10px
+    >li
+      padding: 10px
+  .add-task
+    bottom: 50px
+    right: 50px
+    img
+      box-shadow: 0 5px 10px 0 rgba(0,0,0,.2)
++mobile
+  .section-task
+    padding-top: .5rem
+  .list-task
+    >li
+      &:not(:last-child)
+        margin-bottom: .4rem
+  .add-task
+    bottom: .5rem
+    right: .5rem
+    img
+      box-shadow: 0 .05rem .1rem 0 rgba(0,0,0,.2)
+
+.sub-task
+  margin: 0
+  padding: 0
+  list-style: none
+.item-task
+  display: block
+  .task-inner
+    display: inline-block
+    background: #fff
+    width: 100%
+    height: 100%
+  .task-heading
+    display: flex
+    justify-content: space-between
+    align-items: center
+    input
+      outline: none
+    .heading-title
+      font-weight: bold
+      color: #222
+      margin: 0
+      input
+        width: 100%
+    .heading-action
+      display: inline-block
+      cursor: pointer
+      position: relative
+      img
+        filter: brightness(0)
+        transition: filter .2s
+      &:hover
+        img
+          filter: unset
+      &.is-active
+        img
+          filter: unset
+        .action-list
+          opacity: 1
+          visibility: visible
+    .action-list
+      position: absolute
+      top: 100%
+      right: 0
+      background: #fff
+      margin: 0
+      padding: 0
+      list-style: none
+      width: max-content
+      opacity: 0
+      visibility: hidden
+      z-index: 10
+      transition: all .2s
+      li
+        &:hover
+          color: $base-color
+.button-add
+  span
+    display: inline-block
++desktop
+  .form-input
+    margin-bottom: 10px
+  .item-task
+    width: 20%
+    .task-inner
+      border-radius: 8px
+      padding: 0
+      box-shadow: 0 0 5px 0 rgba(0,0,0,.05)
+    .task-heading
+      padding: 10px 15px
+      border-bottom: 1px solid #eee
+      .heading-title
+        font-size: 20px
+        padding-right: 10px
+        flex: 1
+      .heading-action
+        flex-shrink: 0
+        width: 26px
+      .action-list
+        padding: 5px 5px!important
+        width: 90px
+        border-radius: 5px
+        box-shadow: 1px 2px 5px 0 rgba(0,0,0,.2)
+        li
+          padding: 2.5px 5px
+  .item-add
+    margin-bottom: 15px
+    .button-add
+      padding: 8px
+      border-radius: 5px
+      span
+        padding-left: 26px
+        min-height: 20px
+        background: url(~@/assets/img/common/ico_add.png) no-repeat left center/16px
+  .sub-task
+    padding: 15px
++max-media(1600px)
+  .item-task
+    width: 25%
++max-media(1366px)
+  .item-task
+    width: 33.33%
++max-media(1000px)
+  .item-task
+    width: 50%
++mobile
+  .form-input
+    margin-bottom: .2rem
+  .item-task
+    width: 100%
+  .task-heading
+    padding: .2rem .3rem
+    border-bottom: 1px solid #eee
+    .heading-title
+      font-size: .36rem
+      padding-right: .2rem
+      flex: 1
+    .heading-action
+      flex-shrink: 0
+      width: .52rem
+      img
+        width: 100%
+        height: auto
+        object-fit: cover
+    .action-list
+      padding: .1rem!important
+      width: 1.8rem
+      border-radius: .1rem
+      box-shadow: 1px 2px 5px 0 rgba(0,0,0,.2)
+      li
+        padding: .05rem .1rem
+  .item-add
+    margin-bottom: .3rem
+    .button-add
+      padding: .16rem
+      border-radius: .1rem
+      span
+        padding-left: .52rem
+        min-height: .4rem
+        background: url(~@/assets/img/common/ico_add.png) no-repeat left center/.32rem
+  .sub-task
+    padding: .3rem
+
+
+.sub-task-action
+  margin: 0
+  padding: 0
+  list-style: none
+.item-sub-task
+  display: block
+  transition: background .2s
+  &.is-active,&.is-completed
+    background: rgba(51,102,255,.05)
+  .sub-task-action
+    text-align: right
+    display: flex
+    align-items: center
+    justify-content: flex-end
+    .action
+      display: inline-flex
+      justify-content: center
+      align-items: center
+      cursor: pointer
+      filter: grayscale(90%)
+      transition: filter .1s
+      &:hover
+        filter: grayscale(0)
+      &.is-active
+        filter: grayscale(0)
+  .sub-task-content
+    textarea
+      text-align: left
+      padding: 0
+      width: 100%
+      outline: none
+    &.is-active
+      textarea
+        background: #fff
++desktop
+  .item-sub-task
+    padding: 0 15px 8px
+    border-radius: 5px
+    &:not(:last-child)
+      margin-bottom: 15px
+    .sub-task-action
+      padding: 8px 0
+      border-bottom: 1px solid #ccc
+      margin-bottom: 10px
+      .action
+        margin-left: 6px
+        width: 20px
+        height: 20px
++mobile
+  .item-sub-task
+    padding: 0 .15rem .08rem
+    border-radius: .05rem
+    &:not(:last-child)
+      margin-bottom: .15rem
+    .sub-task-content
+      textarea
+        min-height: 1rem
+    .sub-task-action
+      padding: .2rem 0
+      border-bottom: .01rem solid #ccc
+      margin-bottom: .2rem
+      .action
+        margin-left: .22rem
+        width: .32rem
+        height: .32rem
+        img
+          width: 100%
+          height: auto
+          object-fit: cover
