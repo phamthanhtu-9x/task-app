@@ -38,14 +38,14 @@
   }
 
   .section-title {
-    font-size: 0.36rem;
+    font-size: 0.42rem;
     margin-bottom: 0.25rem;
   }
 
   .form-login {
-    width: 3.5rem;
-    padding: 0.2rem;
-    margin-bottom: 0.25rem;
+    width: 7rem;
+    padding: 0.4rem;
+    margin-bottom: 0.5rem;
     border-radius: 0.1rem;
   }
 }

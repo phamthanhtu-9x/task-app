@@ -88,7 +88,7 @@
     box-shadow: 0 0 0 0.04rem #739dec;
   }
   .form-input input, .form-input select {
-    height: 0.6rem;
+    height: 0.8rem;
   }
   .form-input textarea {
     min-height: 1.5rem;
