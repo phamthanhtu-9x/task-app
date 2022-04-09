@@ -63,12 +63,14 @@ const actions = {
       user = JSON.parse(decodeURIComponent(userKey.split('=')[1]));
       commit('SET_USER', user);
     } else {
-      token = localStorage.getItem('token');
-      tokenExpiration = localStorage.getItem('tokenExpiration')
+      if (typeof window !== 'undefined') {
+        token = localStorage.getItem('token');
+        tokenExpiration = localStorage.getItem('tokenExpiration')
 
-      if(new Date().getTime() > tokenExpiration || !token) {
-        dispatch('logout');
-        return false;
+        if(new Date().getTime() > tokenExpiration || !token) {
+          dispatch('logout');
+          return false;
+        }
       }
     }
     dispatch('setLogoutTimer', tokenExpiration - new Date().getTime());
