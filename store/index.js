@@ -18,8 +18,8 @@ export default () => new VueX.Store({
       state.token = null
     },
     SET_USER(state, user) {
+      alert(user);
       state.user = user
-      alert(state.user);
     },
     CLEAR_USER(state) {
       state.user = null
