@@ -1,5 +1,5 @@
 export default {
-  mode: 'universal',
+  mode: 'spa',
   target: 'static',
   generate: { fallback: true },
   ssr: true,
