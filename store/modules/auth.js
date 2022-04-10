@@ -45,25 +45,26 @@ const actions = {
   initAuth({ commit, dispatch }, req) {
     let token, tokenExpiration, user;
     if(req) {
-      if(!req.headers.cookie) {
-        dispatch('logout');
-        return false;
-      }
-      const tokenKey = req.headers.cookie.split(';').find(c => c.trim().startsWith('token='));
-      const tokenExpirationKey = req.headers.cookie.split(';').find(c => c.trim().startsWith('tokenExpiration='));
-      const userKey = req.headers.cookie.split(';').find(c => c.trim().startsWith('user='));
+      dispatch('logout');
+      // if(!req.headers.cookie) {
+      //   dispatch('logout');
+      //   return false;
+      // }
+      // const tokenKey = req.headers.cookie.split(';').find(c => c.trim().startsWith('token='));
+      // const tokenExpirationKey = req.headers.cookie.split(';').find(c => c.trim().startsWith('tokenExpiration='));
+      // const userKey = req.headers.cookie.split(';').find(c => c.trim().startsWith('user='));
 
-      if(!tokenKey || !tokenExpirationKey) {
-        dispatch('logout');
-        return false;
-      }
+      // if(!tokenKey || !tokenExpirationKey) {
+      //   dispatch('logout');
+      //   return false;
+      // }
 
-      token = tokenKey.split('=')[1];
-      tokenExpiration = tokenExpirationKey.split('=')[1]
-      user = JSON.parse(decodeURIComponent(userKey.split('=')[1]));
-      commit('SET_USER', user);
+      // token = tokenKey.split('=')[1];
+      // tokenExpiration = tokenExpirationKey.split('=')[1]
+      // user = JSON.parse(decodeURIComponent(userKey.split('=')[1]));
+      // commit('SET_USER', user);
     } else {
-      if (typeof window !== 'undefined') {
+      if(process.client) {
         token = localStorage.getItem('token');
         tokenExpiration = localStorage.getItem('tokenExpiration')
 
