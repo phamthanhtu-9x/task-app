@@ -102,7 +102,7 @@ const actions = {
     try {
       await axios.put(process.env.baseApiUrl + `subTasks-${getters.user.localId}/${idSubTask}.json`, data)
       commit('DELETE_SUBTASK', idSubTask);
-      this.$toast.success("Delete!");
+      this.$toast.success("Deleted!");
     } catch(error) {
       this.$toast.error("Something went wrong :(");
     }
