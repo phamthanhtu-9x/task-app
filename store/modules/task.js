@@ -12,10 +12,6 @@ const getters = {
 
 const actions = {
   async getTasks({ commit, getters }) {
-    if(getters.user === null) {
-      alert(getters.user);
-      return false;
-    }
     try {
       const result = await axios.get(process.env.baseApiUrl + `task-${getters.user.localId}.json`);
       const tasksArr = [];
