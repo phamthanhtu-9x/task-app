@@ -1,5 +1,7 @@
 export default {
+  mode: 'spa',
   target: 'static',
+  generate: { fallback: true },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'task-app',
