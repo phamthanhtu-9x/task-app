@@ -42,16 +42,12 @@ const actions = {
       commit('CLEAR_TOKEN');
     }, duration)
   },
-  initAuth({ commit, dispatch }, req) {
+  initAuth({ commit, dispatch }, cookie) {
     let token, tokenExpiration, user = null;
-    if(req) {
-      if(!req.headers.cookie) {
-        dispatch('logout');
-        return false;
-      }
-      const tokenKey = req.headers.cookie.split(';').find(c => c.trim().startsWith('token='));
-      const tokenExpirationKey = req.headers.cookie.split(';').find(c => c.trim().startsWith('tokenExpiration='));
-      const userKey = req.headers.cookie.split(';').find(c => c.trim().startsWith('user='));
+    if(cookie) {
+      const tokenKey = cookie.split(';').find(c => c.trim().startsWith('token='));
+      const tokenExpirationKey = cookie.split(';').find(c => c.trim().startsWith('tokenExpiration='));
+      const userKey = cookie.split(';').find(c => c.trim().startsWith('user='));
 
       if(!tokenKey || !tokenExpirationKey) {
         dispatch('logout');
