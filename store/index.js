@@ -19,6 +19,7 @@ export default () => new VueX.Store({
     },
     SET_USER(state, user) {
       state.user = user
+      alert(state.user);
     },
     CLEAR_USER(state) {
       state.user = null

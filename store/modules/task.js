@@ -13,7 +13,7 @@ const getters = {
 const actions = {
   async getTasks({ commit, getters }) {
     if(getters.user === null) {
-      dispatch('logout');
+      alert(getters.user);
       return false;
     }
     try {
