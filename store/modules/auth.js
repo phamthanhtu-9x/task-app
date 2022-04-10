@@ -44,6 +44,7 @@ const actions = {
   },
   initAuth({ commit, dispatch }, req) {
     let token, tokenExpiration, user = null;
+    alert(user);
     if(req) {
       if(!req.headers.cookie) {
         dispatch('logout');
@@ -61,7 +62,6 @@ const actions = {
       token = tokenKey.split('=')[1];
       tokenExpiration = tokenExpirationKey.split('=')[1]
       user = JSON.parse(decodeURIComponent(userKey.split('=')[1]));
-      alert(user);
       commit('SET_USER', user);
     } else {
       if (typeof window !== 'undefined') {
