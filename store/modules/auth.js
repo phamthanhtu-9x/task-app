@@ -44,7 +44,7 @@ const actions = {
   },
   initAuth({ commit, dispatch }, req) {
     let token, tokenExpiration, user = null;
-    console.log(req.headers.cookie);
+    console.log(req);
     if(req) {
       if(!req.headers.cookie) {
         dispatch('logout');
