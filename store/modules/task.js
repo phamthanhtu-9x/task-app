@@ -37,7 +37,6 @@ const actions = {
   },
 
   async editTask({ getters }, data) {
-    console.log(data.idTask);
     const idTask = data.idTask;
     delete data.idTask;
     try {
@@ -53,7 +52,7 @@ const actions = {
     const idTask = data.idTask;
     delete data.idTask;
     try {
-      await axios.put(process.env.baseApiUrl + `task-${getters.user.localId}/${idTask}.json`, data).then(result => console.log(result))
+      await axios.put(process.env.baseApiUrl + `task-${getters.user.localId}/${idTask}.json`, data)
       commit('DELETE_TASK', idTask);
       this.$toast.success("Deleted!");
     } catch(error) {

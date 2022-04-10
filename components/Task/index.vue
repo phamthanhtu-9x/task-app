@@ -62,6 +62,7 @@ export default {
         taskName: this.taskProp.taskName,
         enable: this.taskProp.enable
       },
+      defaultTaskName: this.taskProp.taskName,
       isActive: false,
       readyonly: true,
     }
@@ -91,7 +92,7 @@ export default {
     onSave() {
       if(this.readyonly == false) {
         this.readyonly = true;
-        this.editTask(this.task);
+        if(this.defaultTaskName != this.task.taskName) this.editTask(this.task);
       }
     },
     onDelete() {

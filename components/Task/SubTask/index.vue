@@ -37,6 +37,7 @@ export default {
         completed: this.subTaskProp.completed,
         enable: this.subTaskProp.enable,
       },
+      defaultSubtaskName: this.subTaskProp.subTaskName,
       readyonly: true,
       isActive: false,
     }
@@ -61,7 +62,7 @@ export default {
       if(this.isActive) {
         this.isActive = false;
         this.readyonly = true;
-        this.editSubTask(this.subTask);
+        if(this.defaultSubtaskName !== this.subTask.subTaskName) this.editSubTask(this.subTask);
       }
     },
     onDelete() {
