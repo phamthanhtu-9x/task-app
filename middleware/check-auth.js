@@ -1,3 +1,7 @@
 export default function(context) {
-  context.store.dispatch('initAuth', document.cookie)
+  if(document.cookie) {
+    context.store.dispatch('initAuth', document.cookie)
+  } else {
+    context.store.dispatch('logout');
+  }
 }
